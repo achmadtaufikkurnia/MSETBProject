@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} %-5p %c (%F:%L) - %m%n</Property>
+        <Property name="APP_LOG_ROOT">/</Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <RollingFile name="ControllerFileAppender"
+            fileName="${APP_LOG_ROOT}/logs/main-services/move-etb-controller.log"
+            filePattern="${APP_LOG_ROOT}/logs/main-services/move-etb-controller-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10000KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+        <RollingFile name="ServiceFileAppender"
+            fileName="${APP_LOG_ROOT}/logs/main-services/move-etb-service.log"
+            filePattern="${APP_LOG_ROOT}/logs/main-services/move-etb-service-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10000KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.move.etb.boot.controller" level="error" additivity="false">
+            <AppenderRef ref="ControllerFileAppender" />
+        </Logger>
+        <Logger name="com.move.etb.boot.service.impl" level="error" additivity="false">
+            <AppenderRef ref="ServiceFileAppender" />
+        </Logger>
+
+<!--         <Root level="info"> -->
+<!--             <AppenderRef ref="ConsoleAppender" /> -->
+<!--         </Root> -->
+    </Loggers>
+</Configuration>
