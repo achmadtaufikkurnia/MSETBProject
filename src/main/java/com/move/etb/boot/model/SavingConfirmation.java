@@ -5,14 +5,11 @@ import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.move.etb.boot.dto.CommonListDTO;
 import com.move.etb.boot.dto.FromAccountMapDTO;
 import com.move.etb.boot.dto.ProductCurrencyMapDTO;
 import com.move.etb.boot.dto.ProductMapDTO;
 
-@JsonInclude(Include.NON_NULL)
 public class SavingConfirmation implements Serializable {
 
 	private static final long serialVersionUID = -2669738569789697561L;

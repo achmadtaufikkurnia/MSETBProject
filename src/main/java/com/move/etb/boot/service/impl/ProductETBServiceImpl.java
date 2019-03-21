@@ -277,8 +277,10 @@ public class ProductETBServiceImpl implements ProductETBService {
 			response = new ResponseData();
 			
 			JSONObject json = new JSONObject(requestPayload);
-			tacPhoneNo = json.get(ApplicationConstants.TAC_PHONE_NO).toString();
-			json.remove(ApplicationConstants.TAC_PHONE_NO);
+			if(json.get(ApplicationConstants.TAC_PHONE_NO).toString()!=null) {
+				tacPhoneNo = json.get(ApplicationConstants.TAC_PHONE_NO).toString();
+				json.remove(ApplicationConstants.TAC_PHONE_NO);
+			}
 			
 			logger.info("REQUEST CONFIRMATION SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
 			String savingConfirmation = jsonAPI.callAPIJson(json.toString(), urlSavingConfirmation);
