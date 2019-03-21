@@ -99,6 +99,9 @@ public class ProductETBServiceImpl implements ProductETBService {
 						}
 						data.setTopProductMap(null);
 						if(data.getServiceInfoBean()!=null) {
+							if(data.getServiceInfoBean().getTacRequired()!=null) {
+								data.getServiceInfoBean().setTacRequired(false);
+							}
 							data.setServiceInfoBeanString(gson.toJson(data.getServiceInfoBean()));
 						}
 						
@@ -270,15 +273,15 @@ public class ProductETBServiceImpl implements ProductETBService {
 	public ResponseData savingConfirmationETBProcess(String requestPayload) throws Exception {
 		ResponseData response = null;
 		SavingConfirmation data = null;
-		String tacPhoneNo = null;
+//		String tacPhoneNo = null;
 		try {
 			JsonAPI jsonAPI = new JsonAPI();
 			Gson gson = new Gson();
 			response = new ResponseData();
 			
 			JSONObject json = new JSONObject(requestPayload);
-			tacPhoneNo = json.get(ApplicationConstants.TAC_PHONE_NO).toString();
-			json.remove(ApplicationConstants.TAC_PHONE_NO);
+//			tacPhoneNo = json.get(ApplicationConstants.TAC_PHONE_NO).toString();
+//			json.remove(ApplicationConstants.TAC_PHONE_NO);
 			
 			logger.info("REQUEST CONFIRMATION SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
 			String savingConfirmation = jsonAPI.callAPIJson(json.toString(), urlSavingConfirmation);
@@ -342,13 +345,13 @@ public class ProductETBServiceImpl implements ProductETBService {
 							data.setMonetaryInformationString(gson.toJson(data.getMonetaryInformationMap()));
 						}
 						
-						if(data.getTacBean()!=null) {
-							if((tacPhoneNo!=null && !tacPhoneNo.isEmpty()) && (data.getTacBean().getTacMobileNo()==null || data.getTacBean().getTacMobileNo().isEmpty())) {
-								data.getTacBean().setTacMobileNo(tacPhoneNo);
-							}
-							data.setTacBeanString(gson.toJson(data.getTacBean()));
-							
-						}
+//						if(data.getTacBean()!=null) {
+//							if((tacPhoneNo!=null && !tacPhoneNo.isEmpty()) && (data.getTacBean().getTacMobileNo()==null || data.getTacBean().getTacMobileNo().isEmpty())) {
+//								data.getTacBean().setTacMobileNo(tacPhoneNo);
+//							}
+//							data.setTacBeanString(gson.toJson(data.getTacBean()));
+//							
+//						}
 						
 						response.setSavingConfirmation(data);
 						response.setResponseCode(data.getResponseCode());
