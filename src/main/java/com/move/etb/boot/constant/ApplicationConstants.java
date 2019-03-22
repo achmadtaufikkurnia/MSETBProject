@@ -20,7 +20,7 @@ public class ApplicationConstants {
 	
 	//!!!ACHMAD!!! REMOVE WHEN PENRIL ALREADY FIXED
 	public final static String SAVING_CODE = "ST";
-	public final static String SAVING_DESC = "REKENING TABUNGAN";
+	public final static String SAVING_DESC = "Rekening Tabungan";
 	public final static String GIRO_CODE = "IM";
-	public final static String GIRO_DESC = "REKENING GIRO";
+	public final static String GIRO_DESC = "Rekening Giro";
 }
