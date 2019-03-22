@@ -17,4 +17,10 @@ public class ApplicationConstants {
 	public final static String PRODUCT_TYPE = "productType";
 	public final static String REMOTE_IP_ADDR = "remoteIPAddress";
 	public final static String TAC_PHONE_NO = "tacPhoneNumber";
+	
+	//!!!ACHMAD!!! REMOVE WHEN PENRIL ALREADY FIXED
+	public final static String SAVING_CODE = "ST";
+	public final static String SAVING_DESC = "REKENING TABUNGAN";
+	public final static String GIRO_CODE = "IM";
+	public final static String GIRO_DESC = "REKENING GIRO";
 }

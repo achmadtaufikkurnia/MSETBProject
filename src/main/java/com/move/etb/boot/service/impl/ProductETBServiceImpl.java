@@ -218,6 +218,12 @@ public class ProductETBServiceImpl implements ProductETBService {
 							FromAccountMapDTO dto = new FromAccountMapDTO();
 						    dto.setFromAccountKey(entry.getKey());
 						    dto.setFromAccountMap(entry.getValue());
+						  //!!!ACHMAD!!! REMOVE WHEN PENRIL ALREADY FIXED
+						    if(dto.getFromAccountMap()!=null && (dto.getFromAccountMap().getApplCode()!=null && dto.getFromAccountMap().getApplCode().equals(ApplicationConstants.SAVING_CODE))) {
+						    	dto.getFromAccountMap().setAccountNoDisplay(ApplicationConstants.SAVING_DESC);
+						    }else if(dto.getFromAccountMap()!=null && (dto.getFromAccountMap().getApplCode()!=null && dto.getFromAccountMap().getApplCode().equals(ApplicationConstants.GIRO_CODE))) {
+						    	dto.getFromAccountMap().setAccountNoDisplay(ApplicationConstants.GIRO_DESC);
+						    }
 						    listFromAccount.add(dto);
 						}
 						data.setFromAccountList(listFromAccount);
