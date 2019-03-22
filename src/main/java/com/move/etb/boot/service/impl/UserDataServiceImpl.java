@@ -82,6 +82,8 @@ public class UserDataServiceImpl implements UserDataService {
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
 					}
+					logger.info("REQUEST USERINFO :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+					logger.info("RESPONSE USERINFO :: "+userInfo.replaceAll("\n", "").replaceAll("\r", ""));
 				}
 			}else {
 				response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
@@ -129,11 +131,15 @@ public class UserDataServiceImpl implements UserDataService {
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
 					}
+					logger.info("REQUEST TAC :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+					logger.info("RESPONSE TAC :: "+requestTac.replaceAll("\n", "").replaceAll("\r", ""));
 				}
 			}else {
 				response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
 				response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 				response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
+				logger.info("REQUEST TAC :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+				logger.info("RESPONSE TAC :: "+requestTac.replaceAll("\n", "").replaceAll("\r", ""));
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);

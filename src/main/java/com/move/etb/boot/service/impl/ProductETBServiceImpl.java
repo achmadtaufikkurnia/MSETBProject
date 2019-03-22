@@ -74,9 +74,7 @@ public class ProductETBServiceImpl implements ProductETBService {
 			String productType = json.getString(ApplicationConstants.PRODUCT_TYPE);
 			json.remove(ApplicationConstants.PRODUCT_TYPE);
 			
-			logger.info("REQUEST PRODUCT LIST :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
 			String productList = jsonAPI.callAPIJson(json.toString(), urlProductList);
-			logger.info("RESPONSE PRODUCT LIST :: "+productList.replaceAll("\n", "").replaceAll("\r", ""));
 			data = gson.fromJson(productList, ProductData.class);
 			
 			if(data!=null) {
@@ -178,9 +176,8 @@ public class ProductETBServiceImpl implements ProductETBService {
 			Gson gson = new Gson();
 			response = new ResponseData();
 			
-			logger.info("REQUEST PRODUCT DETAIL :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+			
 			String productDesc = jsonAPI.callAPIJson(requestPayload, urlProductDetail);
-			logger.info("RESPONSE PRODUCT DETAIL :: "+productDesc.replaceAll("\n", "").replaceAll("\r", ""));
 			data = gson.fromJson(productDesc, ProductDetail.class);
 			
 			if(data!=null) {
@@ -243,6 +240,8 @@ public class ProductETBServiceImpl implements ProductETBService {
 						response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_DATA_NOT_FOUND_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_DATA_NOT_FOUND_IN);
+						logger.info("REQUEST PRODUCT DETAIL :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+						logger.info("RESPONSE PRODUCT DETAIL :: "+productDesc.replaceAll("\n", "").replaceAll("\r", ""));
 					}
 				}else {
 					response.setResponseCode(data.getResponseCode());
@@ -253,11 +252,15 @@ public class ProductETBServiceImpl implements ProductETBService {
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
 					}
+					logger.info("REQUEST PRODUCT DETAIL :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+					logger.info("RESPONSE PRODUCT DETAIL :: "+productDesc.replaceAll("\n", "").replaceAll("\r", ""));
 				}
 			}else {
 				response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
 				response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 				response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
+				logger.info("REQUEST PRODUCT DETAIL :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+				logger.info("RESPONSE PRODUCT DETAIL :: "+productDesc.replaceAll("\n", "").replaceAll("\r", ""));
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
@@ -282,9 +285,8 @@ public class ProductETBServiceImpl implements ProductETBService {
 				json.remove(ApplicationConstants.TAC_PHONE_NO);
 			}
 			
-			logger.info("REQUEST CONFIRMATION SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+			
 			String savingConfirmation = jsonAPI.callAPIJson(json.toString(), urlSavingConfirmation);
-			logger.info("RESPONSE CONFIRMATION SAVING :: "+savingConfirmation.replaceAll("\n", "").replaceAll("\r", ""));
 			data = gson.fromJson(savingConfirmation, SavingConfirmation.class);
 			
 			if(data!=null) {
@@ -360,6 +362,8 @@ public class ProductETBServiceImpl implements ProductETBService {
 						response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_DATA_NOT_FOUND_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_DATA_NOT_FOUND_IN);
+						logger.info("REQUEST CONFIRMATION SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+						logger.info("RESPONSE CONFIRMATION SAVING :: "+savingConfirmation.replaceAll("\n", "").replaceAll("\r", ""));
 					}
 				}else {
 					response.setResponseCode(data.getResponseCode());
@@ -370,11 +374,15 @@ public class ProductETBServiceImpl implements ProductETBService {
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
 					}
+					logger.info("REQUEST CONFIRMATION SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+					logger.info("RESPONSE CONFIRMATION SAVING :: "+savingConfirmation.replaceAll("\n", "").replaceAll("\r", ""));
 				}
 			}else {
 				response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
 				response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 				response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
+				logger.info("REQUEST CONFIRMATION SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+				logger.info("RESPONSE CONFIRMATION SAVING :: "+savingConfirmation.replaceAll("\n", "").replaceAll("\r", ""));
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
@@ -395,9 +403,7 @@ public class ProductETBServiceImpl implements ProductETBService {
 			JSONObject json = new JSONObject(requestPayload);
 			json.put(ApplicationConstants.REMOTE_IP_ADDR, ipAddress);
 			
-			logger.info("REQUEST RESULT SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
 			String savingResult = jsonAPI.callAPIJson(json.toString(), urlSavingResult);
-			logger.info("RESPONSE RESULT SAVING :: "+savingResult.replaceAll("\n", "").replaceAll("\r", ""));
 			data = gson.fromJson(savingResult, SavingResult.class);
 			
 			if(data!=null) {
@@ -447,6 +453,8 @@ public class ProductETBServiceImpl implements ProductETBService {
 						response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_DATA_NOT_FOUND_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_DATA_NOT_FOUND_IN);
+						logger.info("REQUEST RESULT SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+						logger.info("RESPONSE RESULT SAVING :: "+savingResult.replaceAll("\n", "").replaceAll("\r", ""));
 					}
 				}else {
 					response.setResponseCode(data.getResponseCode());
@@ -457,11 +465,15 @@ public class ProductETBServiceImpl implements ProductETBService {
 						response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 						response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
 					}
+					logger.info("REQUEST RESULT SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+					logger.info("RESPONSE RESULT SAVING :: "+savingResult.replaceAll("\n", "").replaceAll("\r", ""));
 				}
 			}else {
 				response.setResponseCode(ApplicationConstants.RESPONSE_CODE_ERROR);
 				response.setResponseMessageEN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN);
 				response.setResponseMessageIN(ApplicationConstants.RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN);
+				logger.info("REQUEST RESULT SAVING :: "+requestPayload.replaceAll("\n", "").replaceAll("\r", ""));
+				logger.info("RESPONSE RESULT SAVING :: "+savingResult.replaceAll("\n", "").replaceAll("\r", ""));
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
