@@ -214,6 +214,9 @@ public class ProductETBServiceImpl implements ProductETBService {
 						data.setProductCurrencyCodeMap(null);
 						
 						List<FromAccountMapDTO> listFromAccount = new ArrayList<FromAccountMapDTO>();
+						if(data.getFromAccountMap()!=null) {
+							data.setFromAccountMapString(gson.toJson(data.getFromAccountMap()));
+						}
 						for (Map.Entry<String, FromAccountMap> entry : data.getFromAccountMap().entrySet()) {
 							FromAccountMapDTO dto = new FromAccountMapDTO();
 						    dto.setFromAccountKey(entry.getKey());
@@ -227,10 +230,8 @@ public class ProductETBServiceImpl implements ProductETBService {
 						    listFromAccount.add(dto);
 						}
 						data.setFromAccountList(listFromAccount);
-						if(data.getFromAccountMap()!=null) {
-							data.setFromAccountMapString(gson.toJson(data.getFromAccountMap()));
-						}
 						data.setFromAccountMap(null);
+						
 						if(data.getServiceInfoBean()!=null) {
 							data.setServiceInfoBeanString(gson.toJson(data.getServiceInfoBean()));
 						}
