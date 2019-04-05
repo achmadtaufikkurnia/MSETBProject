@@ -13,6 +13,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
+import com.move.etb.boot.exception.AuthEntryPointException;
+
 @EnableResourceServer
 @Configuration
 public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapter  {
@@ -27,7 +29,7 @@ public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapte
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 		TokenStore tokenStore = new JdbcTokenStore(apiDataSource());
-		resources.resourceId("product_api").tokenStore(tokenStore);
+		resources.resourceId("product_api").tokenStore(tokenStore).authenticationEntryPoint(new AuthEntryPointException());
 	}
 	
 	@Override
