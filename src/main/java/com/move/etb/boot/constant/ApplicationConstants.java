@@ -13,6 +13,9 @@ public class ApplicationConstants {
 	public final static String RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_EN = "SYSTEM UNAVAILABLE";
 	public final static String RESPONSE_MESSAGE_SYSTEM_UNAVAILABLE_IN = "SISTEM TIDAK TERSEDIA";
 	
+	public final static String UNAUTHORIZED_MESSAGE_EN = "Unauthorized";
+	public final static String UNAUTHORIZED_MESSAGE_IN = "Tidak Memiliki Izin";
+	
 	public final static String PRODUCT_DESC_TOPPRODUCTMAP = "topProductMap";
 	public final static String PRODUCT_TYPE = "productType";
 	public final static String REMOTE_IP_ADDR = "remoteIPAddress";
