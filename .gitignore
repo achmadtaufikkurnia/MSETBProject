@@ -2,3 +2,7 @@ target/
 .classpath
 .factorypath
 .settings/
+.svn/
+Dockerfile
+etbone.sh
+hs_err_pid14532.log

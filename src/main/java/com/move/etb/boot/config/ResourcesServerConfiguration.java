@@ -37,6 +37,7 @@ public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapte
 		http.authorizeRequests()
 		.antMatchers("/actuator/**").permitAll()
 		.antMatchers("/health").permitAll()
+		.antMatchers("/etb/**").permitAll()
 		.anyRequest().authenticated()
 		.and().headers().addHeaderWriter((request, response) -> {
 				response.addHeader("Access-Control-Allow-Origin", "*");
